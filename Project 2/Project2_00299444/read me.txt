@@ -1,0 +1,17 @@
+* Jose Ramos
+* Student ID: 00299444* CIS 252 - T-7847
+* October 10 of 2019* Project 2 
+---------------------------* This project has as its purpose to create a game called WAR. The follow the next set of rules:
+
+1- Each player gets dealt half the deck, 26 cards, and the cards are put face down in a stack in front of the players.
+
+2- Both players turn their top card face up at the same time. The person with the higher card wins that draw, and takes both the cards. They are put to the side to form a new stack, which the player can use when he finishes his current stack.
+
+
+3- If both players draw a card of the same rank, e.g. they both draw 8s, then there's a war. The face up cards are left on the table and each player puts three cards face down on the table, and then puts one card face up. The face up card determines who wins the war and gets all 10 cards that are on the table at this point. If the face up card is again the same rank, then the war goes on, three more face down, one face up etc.
+
+4- First player to finish all their cards loses the game.
+
+5- If a player finishes their cards during a war without having enough cards to finish the war then he loses immediately.* The main of this project is in the "Main.java" file compile and run that file to see the output of the program.
+
+NOTE: Few methods were added to the project but non of the requirement were affected. In each class I explain if a method was added and the reason of doing it.* In this project I learned more about on what situation is better to use a LinkedStack and ArrayStack. It was challenging to me to understand nodes because I haven't used them that much but I can see how much it can contribute to the performance of the program.* Citations: The LinkedNode class, LinkedStack class and the DeckInterface interface and StackInterface Inteface were provided by the instructor Michael Penta.

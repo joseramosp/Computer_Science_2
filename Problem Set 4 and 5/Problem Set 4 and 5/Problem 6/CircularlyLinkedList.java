@@ -1,0 +1,138 @@
+/* Problem set 4 and 5 - Problem 6
+
+Name: Jose Ramos
+Date: October 20, 2019
+
+-- OBJECTIVE --
+
+A sentinel node is a dummy node that goes at the front of a list. In a doubly-linked list, the sentinel node points to the first and last elements of the list.
+
+Some advantages to using these nodes:
+
+We no longer need to keep separate pointers for the head and tail of the list, like we had to do with singly-linked lists.
+We do not have to worry about updating the head and tail pointers, since as we shall see, this happens automatically if we insert after a sentinel node, hence prepending an item to the list, or insert before a sentinel node, hence appending an item to the list
+Modify your implementation of all your list to include a sentinel - SLL, DLL, CLL
+
+*/
+
+public class CircularlyLinkedList<E> implements List<E>{
+    private Link<E> head;      // Pointer to list header
+    private Link<E> tail;      // Pointer to last element
+    private Link<E> curr;      // Access to current element
+    private int listSize;      // Size of list
+
+    // Constructors
+    CircularlyLinkedList(int size) { this(); }     // Constructor -- Ignore size
+    CircularlyLinkedList() { clear(); }
+
+    // Remove all elements  -> Big O: 1
+    public void clear() {
+        curr = tail = new Link<E>(null); // Create trailer
+        head = new Link<E>(tail);        // Create header
+        listSize = 0;
+    }
+
+    // Insert "it" at current position  -> Big O: 1
+    public boolean insert(E it) {
+        curr.setNext(new Link<E>(curr.element(), curr.next()));
+        curr.setElement(it);
+        if (tail == curr) tail = curr.next();  // New tail
+        listSize++;
+        return true;
+    }
+
+    // Append "it" to list  -> Big O: 1
+    public boolean append(E it) {
+        tail.setNext(new Link<E>(null));
+        tail.setElement(it);
+        tail = tail.next();
+        listSize++;
+        return true;
+    }
+
+    // Remove and return current element  -> Big O: 1
+    public E remove () {
+        if (curr == tail) return null;          // Nothing to remove
+        E it = curr.element();                  // Remember value
+        curr.setElement(curr.next().element()); // Pull forward the next element
+        if (curr.next() == tail) tail = curr;   // Removed last, move tail
+        curr.setNext(curr.next().next());       // Point around unneeded link
+        listSize--;                             // Decrement element count
+        return it;                              // Return value
+    }
+
+    public void moveToStart() { curr = head.next(); } // Set curr at list start  -> Big O: 1
+    public void moveToEnd() { curr = tail; }     // Set curr at list end  -> Big O: 1
+
+    // Move curr one step left; no change if now at front  -> Big O: n
+    public void prev() {
+        if (head.next() == curr) return; // No previous element
+        Link<E> temp = head;
+        // March down list until we find the previous element
+        while (temp.next() != curr) temp = temp.next();
+        curr = temp;
+    }
+
+    // Move curr one step right; no change if now at end  -> Big O: 1
+    public void next() {
+        if (curr.next() != tail)
+            curr = curr.next();
+        else {
+            moveToStart();
+        }
+    }
+
+    public int length() { return listSize; } // Return list length  -> Big O: 1
+
+
+    // Return the position of the current element  -> Big O: n
+    public int currPos() {
+        Link<E> temp = head.next();
+        int i;
+        for (i=0; curr != temp; i++)
+            temp = temp.next();
+        return i;
+    }
+
+    // Move down list to "pos" position  -> Big O: n
+    public boolean moveToPos(int pos) {
+        if ((pos < 0) || (pos > listSize)) return false;
+        curr = head.next();
+        for(int i=0; i<pos; i++) curr = curr.next();
+        return true;
+    }
+
+    // Return true if current position is at end of the list  -> Big O: 1
+    public boolean isAtEnd() { return curr == tail; }
+
+    // Return current element value. Note that null gets returned if curr is at the tail  -> Big O: 1
+    public E getValue() {
+        return curr.element();
+    }
+
+    // Big O: 2n = n
+    public String toString() {
+        Link<E> temp = head.next();
+        StringBuffer out = new StringBuffer((listSize + 1) * 4);
+
+        out.append("< ");
+        for (int i = 0; i < currPos(); i++) {
+            out.append(temp.element());
+            out.append(" ");
+            temp = temp.next();
+        }
+        out.append("| ");
+        for (int i = currPos(); i < listSize; i++) {
+            out.append(temp.element());
+            out.append(" ");
+            temp = temp.next();
+        }
+        out.append(">");
+        return out.toString();
+    }
+
+    //Tell if the list is empty or not //-> Big O: 1
+    public boolean isEmpty() {
+        return listSize == 0;
+    }
+}

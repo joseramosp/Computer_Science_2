@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="javax.ws.rs-api-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/IdeaProjects/javax.ws.rs-api-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

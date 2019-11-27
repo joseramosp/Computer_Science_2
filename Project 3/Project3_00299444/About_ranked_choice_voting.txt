@@ -1,0 +1,26 @@
+* Jose Ramos
+* Student ID: 00299444* CIS 252 - T-7847
+* October 27 of 2019* Project 3 - Ranked Choice Voting System
+---------------------------Ranked Choice Voting is a voting counting system that requires to the voter to rank their choice from most preferred candidate to less preferred candidate. Then an algorithm will determine the winner by removing less favorite candidate on each round until a single candidate is on the is left. If one of the candidate got more than 50% of the votes since the 1st round or count of votes, that candidate will be the winner.Source 1:
+
+This source is good because it is from an official governmental YouTube Channel of the state of Main. It is explained really good and simple.
+Website: YouTube.com
+Channel: Maine Department of the Secretary of State
+Video Title: Ranked-Choice Voting in Maine
+Link: https://www.youtube.com/watch?v=xcGGH7E_vNk
+
+Source 2:
+
+This is a governmental website that explains everything about RCV and how is it is implemented in the County of Alameda in CA.
+
+Website: Alameda County 
+Title: Ranked-Choice Voting - Frequently Asked Questions
+Link: https://www.acgov.org/rov/rcv/faq.htm
+
+Source 3:
+
+This is a governmental website that explains everything about RCV and how is it is implemented in the state of MA.
+
+Website: Voter Choice Massachusetts
+Title: Ranked Choice Voting is a simple change to the way we vote.
+Link: https://www.voterchoicema.org/about_rcv

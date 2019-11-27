@@ -1,0 +1,7 @@
+4. Consider the insertion method in the text books implementation of the Array-Based List. What is the worst case time cost of an insertion? Why? 
+
+The worst case is "n" because if the variable curr is equal 0 and the array size is equal to "maxSize - 1" then it will take n - 1.
+
+Consider the insertion in your modified Array-based List. What is the worst case time cost of an insertion? Why?
+
+The worst case is "n" because for the same reason as before. 
