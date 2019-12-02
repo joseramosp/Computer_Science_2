@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ff9b0f-8fb0-4d64-8212-06eb45fcdc24" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/README.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/ShortestJobNext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/ShortestJobNext.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/SimulationTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/SimulationTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ossimulation/ShortestJobNext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ossimulation/ShortestJobNext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ossimulation/SimulationTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ossimulation/SimulationTester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/Support/LinkedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/Support/LinkedNode.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/Support/LinkedQueue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/Support/ListInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/Support/QueueInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/CPU.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/FirstComeFistServeScheduler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/OSSimulation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/Process.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/ProcessScheduler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/RoundRobin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/ShortestJobNext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project 4 - Process Scheduler/ossimulation/SimulationTester.java" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
