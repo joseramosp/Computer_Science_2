@@ -6,7 +6,7 @@ public class RoundRobin implements ProcessScheduler {
 
     QueueInterface<Process> q;
     Process processToRun;
-    int cyclesToRun = 5;    // This is the robin of the scheduler.
+    int cyclesToRun = 5;
 
     public RoundRobin()
     {
@@ -18,7 +18,7 @@ public class RoundRobin implements ProcessScheduler {
 
         /*
             Round Robin.
-            If there is a process, it will run it as many time the Robing specify. (In this case for 5 process)
+            If there is a process, it will run it as many time the Robing specify.
             Then it will go to the next process on the queue and run it as many time the Robing specify.
             If the process still not done, it will add it to the end of the queue.
             if the queue is empty, run an idle process
