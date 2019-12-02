@@ -2,15 +2,15 @@ package ossimulation;
 import Support.QueueInterface;
 import Support.LinkedQueue;
 
-public class ShortestJobNext implements ProcessScheduler{
+public class ShortestJobNext<E> extends LinkedQueue implements ProcessScheduler{
 
     QueueInterface<Process> q;
     QueueInterface<Process> q2;  // This queue is used to sort the main queue used to get the next process.
     Process processToRun;
 
     public ShortestJobNext() {
-        q = new LinkedQueue<Process>();
-        q2 = new LinkedQueue<Process>();
+        q = new ShortestJobNext<Process>();
+        q2 = new ShortestJobNext<Process>();
     }
 
     @Override
@@ -70,6 +70,36 @@ public class ShortestJobNext implements ProcessScheduler{
         }
         printTheCyclesOfEveryProcessInTheQueue();
     }
+
+    public boolean enqueue(Process p) {
+
+        if(length() > 0) {
+            while (length() > 0) {
+                if (p.cycles < frontValue().cycles){
+                    q2.enqueue(p);
+                    while (q.length() > 0) {
+                        q2.enqueue(q.dequeue());
+                    }
+                }
+                else{
+                    q2.enqueue(q.dequeue());
+                    if(q.length() <= 0){
+                        q2.enqueue(p);
+                    }
+                }
+            }
+            while (q2.length() > 0) {
+                q.enqueue(q2.dequeue());
+            }
+        }
+        else{
+            q.enqueue(p);
+        }
+
+        super.enqueue(p);
+        return true;
+    }
+
 
     public void printTheCyclesOfEveryProcessInTheQueue(){
         System.out.println("The cycles of every processes in the queue are: ");
