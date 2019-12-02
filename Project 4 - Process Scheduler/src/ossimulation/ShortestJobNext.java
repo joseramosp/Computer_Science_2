@@ -2,15 +2,13 @@ package ossimulation;
 import Support.QueueInterface;
 import Support.LinkedQueue;
 
-public class ShortestJobNext<E> extends LinkedQueue implements ProcessScheduler{
+public class ShortestJobNext extends LinkedQueue<Process> implements ProcessScheduler{
 
-    QueueInterface<Process> q;
-    QueueInterface<Process> q2;  // This queue is used to sort the main queue used to get the next process.
+    LinkedQueue<Process> q  = new LinkedQueue<>(); // This queue is used to sort the main queue used to get the next process.
     Process processToRun;
 
     public ShortestJobNext() {
-        q = new ShortestJobNext<Process>();
-        q2 = new ShortestJobNext<Process>();
+
     }
 
     @Override
@@ -46,57 +44,37 @@ public class ShortestJobNext<E> extends LinkedQueue implements ProcessScheduler{
     public void scheduleProcess(Process p) {
         System.out.println("Scheduling PID: "+p.getId() + " Cycles: " + p.getCycles());
 
-        if(q.length() > 0) {
-            while (q.length() > 0) {
-                if (p.cycles < q.frontValue().cycles){
-                    q2.enqueue(p);
-                    while (q.length() > 0) {
-                        q2.enqueue(q.dequeue());
-                    }
-                }
-                else{
-                    q2.enqueue(q.dequeue());
-                    if(q.length() <= 0){
-                        q2.enqueue(p);
-                    }
-                }
-            }
-            while (q2.length() > 0) {
-                q.enqueue(q2.dequeue());
-            }
-        }
-        else{
-            q.enqueue(p);
-        }
+        enqueue(p);
+
         printTheCyclesOfEveryProcessInTheQueue();
     }
 
+    @Override
     public boolean enqueue(Process p) {
 
-        if(length() > 0) {
-            while (length() > 0) {
-                if (p.cycles < frontValue().cycles){
-                    q2.enqueue(p);
+        if(q.length() > 0) {
+            while (q.length() > 0) {
+                if (p.cycles < q.frontValue().cycles){
+                    super.enqueue(p);
                     while (q.length() > 0) {
-                        q2.enqueue(q.dequeue());
+                        super.enqueue(q.dequeue());
                     }
                 }
                 else{
-                    q2.enqueue(q.dequeue());
+                    super.enqueue(q.dequeue());
                     if(q.length() <= 0){
-                        q2.enqueue(p);
+                        super.enqueue(p);
                     }
                 }
             }
-            while (q2.length() > 0) {
-                q.enqueue(q2.dequeue());
+            while (length() > 0) {
+                q.enqueue(dequeue());
             }
         }
         else{
             q.enqueue(p);
         }
 
-        super.enqueue(p);
         return true;
     }
 
@@ -105,11 +83,11 @@ public class ShortestJobNext<E> extends LinkedQueue implements ProcessScheduler{
         System.out.println("The cycles of every processes in the queue are: ");
         while(q.length() > 0){
             System.out.print(q.frontValue().cycles + " ");
-            q2.enqueue(q.dequeue());
+            super.enqueue(q.dequeue());
         }
         System.out.println();
-        while(q2.length() > 0){
-            q.enqueue(q2.dequeue());
+        while(length() > 0){
+            q.enqueue(dequeue());
         }
     }
 }
