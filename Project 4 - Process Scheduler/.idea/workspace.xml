@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95ff9b0f-8fb0-4d64-8212-06eb45fcdc24" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/README.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/ShortestJobNext.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/ShortestJobNext.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/SimulationTester.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Project 4 - Process Scheduler/ossimulation/SimulationTester.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ossimulation/RoundRobin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ossimulation/RoundRobin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ossimulation/ShortestJobNext.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ossimulation/ShortestJobNext.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ossimulation/SimulationTester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ossimulation/SimulationTester.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

@@ -22,11 +22,11 @@ public class SimulationTester
         //change the number of cycles
 
         System.out.println("\n---------------------| First Come Fist Serve Scheduler |---------------------\n");
-        os.simulate(50);
+        //os.simulate(50);
         System.out.println("\n-------------------------------| Round Robin |-------------------------------\n");
-        RoundRobin_os.simulate(50);
+        //RoundRobin_os.simulate(50);
         System.out.println("\n----------------------------| Shortest Job Next |----------------------------\n");
-        ShortestJobNext_os.simulate(50);
+        ShortestJobNext_os.simulate(200);
 
     } 
 }
