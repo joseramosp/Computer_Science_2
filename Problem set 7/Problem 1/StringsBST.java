@@ -7,12 +7,6 @@ public class StringsBST extends BSTree<String>{
         ArrayList<String> everyWordInTheTree = allWordsSortedAtoZ();
         this.clear();
 
-//        System.out.print("[ ");
-//        for(int i = 0; i< everyWordInTheTree.size(); i++){
-//            System.out.print(everyWordInTheTree.get(i)+" ");
-//        }
-//        System.out.println("]");
-
         balanceHelp(everyWordInTheTree, 0, everyWordInTheTree.size());
     }
 
@@ -56,7 +50,7 @@ public class StringsBST extends BSTree<String>{
         return;
     }
 
-    public void findSimilar(String key) {
+    public boolean findSimilar(String key) {
         ArrayList<String> allSimilarWords = new ArrayList<>();
         allSimilarWords = findSimilar(root, key, allSimilarWords);
 
@@ -66,7 +60,9 @@ public class StringsBST extends BSTree<String>{
                 System.out.print(allSimilarWords.get(i)+" ");
             }
             System.out.println("]");
+            return true;
         }
+        return false;
     }
     
     protected ArrayList<String> findSimilar(BSTNode rt, String k, ArrayList<String> allSimilarWords)
@@ -106,10 +102,7 @@ public class StringsBST extends BSTree<String>{
         if(word1.length()>=word2.length()) {
             if (word1.substring(0, word2.length()).equals(word2))
                 return true;
-            else
-                return false;
         }
-        else
-            return false;
+        return false;
     }
 }

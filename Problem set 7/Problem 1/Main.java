@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -31,11 +33,28 @@ public class Main {
         test.insert("Clear");
         test.insert("Resilient");
         test.balance();
+
+        String word = "";
+        boolean isSimilar;
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("All the words in the tree are:");
         test.print();
 
-        String word = "Hello";
-        String word2 = "H";
-        System.out.println(test.root.value());
-        test.findSimilar(word2);
+        System.out.println("\nEnter a letter and then press enter until you complete the word that you want:\n");
+
+        while(true){
+            word += scanner.next();
+
+            isSimilar = test.findSimilar(word);
+
+            if(!isSimilar){
+                System.out.println("It seems like the word that you want is no on the tree. What is the word?");
+                test.insert(scanner.next());
+                test.balance();
+                System.out.println("\nEnter a letter and then press enter until you complete the word that you want:\n");
+                word = "";
+            }
+        }
     }
 }

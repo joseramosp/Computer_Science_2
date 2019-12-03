@@ -47,9 +47,7 @@ public class BSTree<E extends Comparable<E>>
           return rt.value();
       else return (E) findHelp(rt.right(), k);
   }
-  
-  
-  
+
   protected BSTNode insertHelp(BSTNode<E> rt, E e)
   {
       if(rt == null) return new BSTNode<>(e);
@@ -81,7 +79,6 @@ public class BSTree<E extends Comparable<E>>
                 rt.setLeft(deleteMax(rt.left()));
             }
         }
-        
         return rt;
       }
 
