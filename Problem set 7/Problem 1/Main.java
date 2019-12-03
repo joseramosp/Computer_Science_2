@@ -14,8 +14,28 @@ public class Main {
         test.insert("Hart");
         test.insert("Rock");
         test.insert("Avalon");
-        test.print();
+        test.insert("Help");
+        test.insert("Rex");
+        test.insert("Blue");
+        test.insert("Good");
+        test.insert("Best");
+        test.insert("Diamond");
+        test.insert("Phone");
+        test.insert("Swift");
+        test.insert("Python");
+        test.insert("Coffee");
+        test.insert("Homework");
+        test.insert("Project");
+        test.insert("Helper");
+        test.insert("Future");
+        test.insert("Clear");
+        test.insert("Resilient");
         test.balance();
         test.print();
+
+        String word = "Hello";
+        String word2 = "H";
+        System.out.println(test.root.value());
+        test.findSimilar(word2);
     }
 }
