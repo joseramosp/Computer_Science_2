@@ -2,9 +2,9 @@
 public class Question<V extends Comparable<V>> {
 
     private V question;
-
     private Question no;
     private Question yes;
+    private Question parentQuestion;
 
     public Question(V data) {
         this.question = data;
@@ -12,6 +12,7 @@ public class Question<V extends Comparable<V>> {
 
     public Question(V data, Question<V> parent) {
         this.question = data;
+        parentQuestion = parent;
     }
 
     public Question(V data, Question<V> n, Question<V> y) {
@@ -50,5 +51,18 @@ public class Question<V extends Comparable<V>> {
 
     public boolean isLeaf() {
         return no == null && yes == null;
+    }
+
+    public String toString(){
+        String s = "{";
+
+        if(this.isLeaf()){
+            s = s + (question.toString());
+        }
+        else{
+            s = s + (question.toString() + no.toString() + yes.toString());
+        }
+        s = s + "}";
+        return s;
     }
 }
