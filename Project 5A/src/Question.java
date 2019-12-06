@@ -54,15 +54,15 @@ public class Question<V extends Comparable<V>> {
     }
 
     public String toString(){
-        String s = "{";
+        String s = " { ";
 
         if(this.isLeaf()){
-            s = s + (question.toString());
+            s = s + "\""+(question.toString()+"\"" +" "+"\""+"{null}{null}"+"\"");
         }
         else{
-            s = s + (question.toString() + no.toString() + yes.toString());
+            s = s + "\""+(question.toString()+"\"" + no.toString() + yes.toString());
         }
-        s = s + "}";
+        s = s + " }";
         return s;
     }
 }

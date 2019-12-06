@@ -1,32 +1,26 @@
 import java.io.*;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Scanner;
+import static java.nio.file.StandardOpenOption.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-//        File textFile = new File("text.txt" );
-//        Scanner scanner = new Scanner(textFile);
-//        ArrayList<String> repeatedWords = new ArrayList<>();
-//
-//        BSTree test = new BSTree();
-//
-//        String word = "";
-//        while (scanner.hasNext()) {
-//            word = scanner.next();
-//            if(test.find(word) == null){
-//                test.insert(word);
-//            }
-//            else{
-//                repeatedWords.add(word);
-//            }
-//            test.print();
-//        }
+        FileInputStream textFile = new FileInputStream("src/text.txt");
+        //File textFile = new File("text.txt" );
+        //Scanner scanner = new Scanner(textFile);
 
         BSTree test = new BSTree();
-        test.test1();
+
+//        test.test1();
+//        System.out.println(test.root.toString());
+        test.fromFile();
+
         System.out.println(test.root.toString());
+//        test.root.question();
+
 
     }
     

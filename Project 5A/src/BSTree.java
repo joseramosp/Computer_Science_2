@@ -1,3 +1,10 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+import java.util.*;
+
 public class BSTree {
     protected Question<String> root; // Root of the BST
     protected int nodeCount; // Number of nodes in the BST
@@ -117,8 +124,46 @@ public class BSTree {
         
     }
 
-    public void loadTreeFromFile(){
+    public void toFile(){
+        try(PrintWriter out = new PrintWriter("src/textForWritingTest.txt")) {
+            out.println(root.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void fromFile() throws FileNotFoundException {
+        Question<String> rt = root;
+        FileInputStream file = new FileInputStream("src/textForWritingTest.txt");
+        Scanner scanner = new Scanner(file);
+        //scanner.useDelimiter("\\{");
+        fromFileHelper(rt, scanner);
+    }
+    public void fromFileHelper(Question<String> rt,  Scanner scanner){
+
+        String c = scanner.next();
+        System.out.println(c);
+        if (c.equals("{")) {
+            Pattern pattern = Pattern.compile("..?");
+            c = scanner.nextLine(pattern);
+
+            if(!c.equals("{null}{null}")){
+                rt = new Question<String>(c);
+                fromFileHelper(rt.no(),scanner);
+                fromFileHelper(rt.yes(),scanner);
+                //rt.setYes(new Question<String>(c, rt.setYes(), rt.no()));
+            }
+            else{
+                rt.setYes(null);
+                rt.setNo(null);
+            }
+
+        }
+        else if (c.equals("}")){
+
+        }
 
     }
+
 
 }
