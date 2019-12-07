@@ -15,7 +15,8 @@ public class Main {
 //        test.toFile();
         test.fromFile();
         Main.startGame(test);
-        System.out.println(test.root);
+//        System.out.println(test.root);
+        test.toFile();
 
 //        System.out.println(test.root);
 
@@ -36,10 +37,10 @@ public class Main {
         while(!tree.root.isLeaf()){
             System.out.println(tree.root.question());
 
-            userInput = scanner.next();
+            userInput = scanner.nextLine();
             while(!userInput.equals("n") && !userInput.equals("y")){
                 System.out.println("\nYour input is not valid. Try aging:");
-                userInput = scanner.next();
+                userInput = scanner.nextLine();
             }
 
             if(userInput.equals("n")){
@@ -54,10 +55,10 @@ public class Main {
 
         System.out.println("If it is not the answer type \"n\" or \"y\" if it is the answer:");
 
-        userInput = scanner.next();
+        userInput = scanner.nextLine();
         while(!userInput.equals("n") && !userInput.equals("y")){
             System.out.println("Your input is not valid. Try aging:\n");
-            userInput = scanner.next();
+            userInput = scanner.nextLine();
         }
 
         if(userInput.equals("n")){
@@ -65,10 +66,11 @@ public class Main {
             String newAnswer;
 
             System.out.println("Enter the real answer:");
-            newAnswer = scanner.next();
+            newAnswer = scanner.nextLine();
 
             System.out.println("\nEnter a question that can lead to your answer:");
-            newQuestion = scanner.next();
+            newQuestion = scanner.nextLine();
+            System.out.println();
 
             Question<String> tempQuestion = new Question<String>(newQuestion, tree.root, new Question<String>(newAnswer));
 
