@@ -57,10 +57,10 @@ public class Question<V extends Comparable<V>> {
         String s = " { ";
 
         if(this.isLeaf()){
-            s = s + "\""+(question.toString()+"\"" +" "+"\""+"{null}{null}"+"\"");
+            s = s + "\" "+(question.toString()+" \" { \" {null}{null} \" }");
         }
         else{
-            s = s + "\""+(question.toString()+"\"" + no.toString() + yes.toString());
+            s = s + "\" "+(question.toString()+" \"" + no.toString() + yes.toString());
         }
         s = s + " }";
         return s;

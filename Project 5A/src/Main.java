@@ -19,6 +19,7 @@ public class Main {
         test.fromFile();
 
         System.out.println(test.root.toString());
+
 //        test.root.question();
 
 

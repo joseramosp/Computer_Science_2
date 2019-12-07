@@ -120,7 +120,7 @@ public class BSTree {
 
     public void test1(){
         
-        this.root = new Question<String>("Is is alive", new Question<String>("It is a rock"), new Question<String>("It is a dog"));
+        this.root = new Question<String>("Is is alive?", new Question<String>("It is a rock"), new Question<String>("It is a dog"));
         
     }
 
@@ -144,8 +144,14 @@ public class BSTree {
         String c = scanner.next();
         System.out.println(c);
         if (c.equals("{")) {
-            Pattern pattern = Pattern.compile("..?");
-            c = scanner.nextLine(pattern);
+//            Pattern pattern = Pattern.compile("([^\"]*)");
+            c = scanner.next();
+            c = scanner.next();
+            while (!('\"' == c.charAt(c.length() - 1))){
+                c = c + " " + scanner.next();
+            }
+
+            c = c.substring(0,c.length() - 2);
 
             if(!c.equals("{null}{null}")){
                 rt = new Question<String>(c);
