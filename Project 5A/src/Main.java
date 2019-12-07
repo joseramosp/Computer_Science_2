@@ -8,19 +8,17 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        FileInputStream textFile = new FileInputStream("src/text.txt");
-        //File textFile = new File("text.txt" );
-        //Scanner scanner = new Scanner(textFile);
-
         BSTree test = new BSTree();
 
 //        test.test1();
 //        System.out.println(test.root.toString());
+//        test.toFile();
         test.fromFile();
 
-        System.out.println(test.root.toString());
+        System.out.println(test.root);
 
 //        test.root.question();
+        System.out.println(test.root.yes().question());
 
 
     }

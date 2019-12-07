@@ -133,18 +133,19 @@ public class BSTree {
     }
 
     public void fromFile() throws FileNotFoundException {
-        Question<String> rt = root;
         FileInputStream file = new FileInputStream("src/textForWritingTest.txt");
         Scanner scanner = new Scanner(file);
-        //scanner.useDelimiter("\\{");
-        fromFileHelper(rt, scanner);
+        root = fromFileHelper(root, scanner);
     }
-    public void fromFileHelper(Question<String> rt,  Scanner scanner){
+
+    public Question<String> fromFileHelper(Question<String> rt,  Scanner scanner){
 
         String c = scanner.next();
-        System.out.println(c);
+
+        while(c.equals("}") && scanner.hasNext()){
+            c = scanner.next();
+        }
         if (c.equals("{")) {
-//            Pattern pattern = Pattern.compile("([^\"]*)");
             c = scanner.next();
             c = scanner.next();
             while (!('\"' == c.charAt(c.length() - 1))){
@@ -153,23 +154,18 @@ public class BSTree {
 
             c = c.substring(0,c.length() - 2);
 
-            if(!c.equals("{null}{null}")){
+            if(!c.equals("{null}")){
                 rt = new Question<String>(c);
-                fromFileHelper(rt.no(),scanner);
-                fromFileHelper(rt.yes(),scanner);
-                //rt.setYes(new Question<String>(c, rt.setYes(), rt.no()));
+                rt.setYes(fromFileHelper(null,scanner));
+                rt.setNo(fromFileHelper(null,scanner));
+                return rt;
             }
             else{
-                rt.setYes(null);
-                rt.setNo(null);
+                return null;
             }
-
         }
-        else if (c.equals("}")){
-
+        else{
+            return null;
         }
-
     }
-
-
 }

@@ -25,8 +25,16 @@ public class Question<V extends Comparable<V>> {
         this.no = no;
     }
 
+    public void setNo() {
+        this.no = null;
+    }
+
     public void setYes(Question<V> yes) {
         this.yes = yes;
+    }
+
+    public void setYes() {
+        this.yes = null;
     }
 
     public void setQuestion(V question) {
@@ -57,7 +65,7 @@ public class Question<V extends Comparable<V>> {
         String s = " { ";
 
         if(this.isLeaf()){
-            s = s + "\" "+(question.toString()+" \" { \" {null}{null} \" }");
+            s = s + "\" "+(question.toString()+" \" { \" {null} \" { \" {null} \" } }");
         }
         else{
             s = s + "\" "+(question.toString()+" \"" + no.toString() + yes.toString());
