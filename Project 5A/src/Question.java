@@ -69,20 +69,16 @@ public class Question<V extends Comparable<V>> {
         return no == null && yes == null;
     }
 
+    public V getQuestion(){ return this.question; }
+
     public boolean hasParent(){
         return parentQuestion != null;
     }
 
     public String toString(){
-        String s = " { ";
-
-        if(this.isLeaf()){
-            s = s + "\" "+(question.toString()+" \" { \" {null} \" { \" {null} \" } }");
-        }
-        else{
-            s = s + "\" "+(question.toString()+" \"" + no.toString() + yes.toString());
-        }
-        s = s + " }";
+        String s = "{ ";
+        s += ((!(question == null)? question.toString() : "") + (!(no == null) ? no.toString() : "") + (!(yes == null)? yes.toString() : ""));
+        s += "}";
         return s;
     }
 }

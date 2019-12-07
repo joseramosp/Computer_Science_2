@@ -13,16 +13,17 @@ public class Main {
 //        test.test1();
 //        System.out.println(test.root.toString());
 //        test.toFile();
-        test.fromFile();
-        Main.startGame(test);
-        System.out.println(test.root);
+//        test.fromFile();
+//        Main.startGame(test);
+//        System.out.println(test.root);
 
 //        System.out.println(test.root);
 
 //        test.root.question();
 //        System.out.println(test.root.yes().question());
 //        test.print();
-
+        test.fromFile();
+        System.out.println(test.root);
     }
 
     static void startGame(BSTree tree){
