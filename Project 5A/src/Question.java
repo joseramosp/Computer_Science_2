@@ -10,6 +10,14 @@ public class Question<V extends Comparable<V>> {
         this.question = data;
     }
 
+    public void setParent(Question<V> parentQuestion){
+        this.parentQuestion = parentQuestion;
+    }
+
+    public Question<V> getParent(){
+        return parentQuestion;
+    }
+
     public Question(V data, Question<V> parent) {
         this.question = data;
         parentQuestion = parent;
@@ -59,6 +67,10 @@ public class Question<V extends Comparable<V>> {
 
     public boolean isLeaf() {
         return no == null && yes == null;
+    }
+
+    public boolean hasParent(){
+        return parentQuestion != null;
     }
 
     public String toString(){
