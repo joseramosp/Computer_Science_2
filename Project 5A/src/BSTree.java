@@ -80,27 +80,35 @@ public class BSTree {
         }
     }
 
-    public void fromFile() throws IOException {
-        //Take the file
-        FileReader file = new FileReader(new File("src/textForWritingTest.txt"));
+    public void fromFile(){
+        try{
+            //Take the file
             //Wrap the FileReader around a BufferedReader for a less costly read because
             //it returns raw data (byte level) rather than parsing what it finds
             //These two lines could have been abstracted to one, like this
             //BufferedReader bf = new BufferedReader(new FileReader(new File("src/textForWritingTest.txt")));
             //but readability and understanding is key here
-        BufferedReader bf = new BufferedReader(file);
-        //Look at the first character
-        if ((char) bf.read() == '{'){
-        //If it is a '{' then helper
-            //helper: Take all the characters after the { and return a node
-            //with its data being the String of these characters, until it finds a
-            //'}', and when it does, set its left to whatever the string is and
-            //its right to the same thing (same method not the same object
-            this.root = fromFile(bf);
-        }
-        //If it's not, abort
-        else {
-            System.out.println("File doesn't match desired structure { Text{ Text}}");
+            FileReader file = new FileReader(new File("src/textForWritingTest.txt"));
+            BufferedReader bf = new BufferedReader(file);
+            //Look at the first character
+            if ((char) bf.read() == '{'){
+                //If it is a '{' then helper
+                //helper: Take all the characters after the { and return a node
+                //with its data being the String of these characters, until it finds a
+                //'}', and when it does, set its left to whatever the string is and
+                //its right to the same thing (same method not the same object
+                this.root = fromFile(bf);
+            }
+            //If it's not, abort
+            else {
+                System.out.println("File doesn't match desired structure { Text{ Text}}");
+            }
+        } catch (FileNotFoundException e){
+            System.out.println("Error trying to consume the file");
+            e.printStackTrace();
+        } catch (IOException ioE){
+            System.out.println("Error while reading the file");
+            ioE.printStackTrace();
         }
     }
 
