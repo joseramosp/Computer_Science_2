@@ -2,7 +2,6 @@ import java.util.Scanner;
 
 public class TwentyQuestions {
     private Question<String> currentQuestion;
-    private Question<String> pastQuestion;
     private BSTree twentyQ;
 
     public TwentyQuestions(BSTree tq){
@@ -27,7 +26,6 @@ public class TwentyQuestions {
                     System.out.println("I won!");
                     gameDone = true;
                 } else {
-                    this.pastQuestion = currentQuestion;
                     currentQuestion = currentQuestion.yes();
                 }
             } else if (input.equals("n") || input.equals("no")){
@@ -35,7 +33,6 @@ public class TwentyQuestions {
                     createNewQuestion();
                     gameDone = true;
                 } else {
-                    this.pastQuestion = currentQuestion;
                     currentQuestion = currentQuestion.no();
                 }
             } else {
