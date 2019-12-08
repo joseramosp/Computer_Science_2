@@ -1,1 +1,1 @@
- { " Is is alive? " { " Is it a machine? " { " It is a rock " { " {null} " { " {null} " } } } { " Computer " { " {null} " { " {null} " } } } } { " It is a dog " { " {null} " { " {null} " } } } }
+ { " Is is alive? " { " Does it has wheels? " { " It is a rock " { " {null} " { " {null} " } } } { " Car " { " {null} " { " {null} " } } } } { " Does it has leafs? " { " It is a dog " { " {null} " { " {null} " } } } { " Tree " { " {null} " { " {null} " } } } } }

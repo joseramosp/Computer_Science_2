@@ -10,9 +10,11 @@ public class Main {
 
         BSTree test = new BSTree();
 
-//        test.test1();
 //        System.out.println(test.root.toString());
+
+//        test.test1();
 //        test.toFile();
+
         test.fromFile();
         Main.startGame(test);
 //        System.out.println(test.root);
@@ -31,6 +33,9 @@ public class Main {
 
         Question<String> rt = tree.root;
         String userInput;
+
+        tree.print();
+        System.out.println(tree.root);
 
         System.out.println("Think about anything and I am going to guess what it is. Just type \"y\" for yes and \"n\" for no on each question.\n");
 
@@ -65,17 +70,22 @@ public class Main {
             String newQuestion;
             String newAnswer;
 
-            System.out.println("Enter the real answer:");
+            System.out.println("\nEnter the real answer:");
             newAnswer = scanner.nextLine();
 
             System.out.println("\nEnter a question that can lead to your answer:");
             newQuestion = scanner.nextLine();
-            System.out.println();
 
             Question<String> tempQuestion = new Question<String>(newQuestion, tree.root, new Question<String>(newAnswer));
 
             tempQuestion.setParent(tree.root.getParent());
-            tree.root.getParent().setNo(tempQuestion);
+            if(tree.root.getParent().yes().question().equals(tempQuestion.no().question())){
+                tree.root.getParent().setYes(tempQuestion);
+            }
+            if(tree.root.getParent().no().question().equals(tempQuestion.no().question())){
+                tree.root.getParent().setNo(tempQuestion);
+            }
+
             tree.root = tempQuestion;
 
             while(tree.root.hasParent()){
@@ -83,7 +93,12 @@ public class Main {
             }
         }
         else{
-            System.out.println("I knew it!");
+            System.out.println("\nI knew it!");
+            while(tree.root.hasParent()){
+                tree.goToParent();
+//                tree.print();
+//                System.out.println(tree.root);
+            }
         }
     }
 }
