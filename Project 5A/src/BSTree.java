@@ -37,7 +37,7 @@ public class BSTree {
         printHelp(rt.yes());
     }
 
-    public void test1(){
+    public void generateQuestions(){
         
         this.root = new Question<String>("Is is alive?",
                 new Question<>("Is it naturally-made?",
