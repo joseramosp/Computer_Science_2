@@ -1,7 +1,10 @@
-import java.io.*;
 import java.util.Scanner;
-import java.util.regex.Pattern;
-import java.util.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class BSTree {
     protected Question<String> root; // Root of the BST
@@ -99,9 +102,6 @@ public class BSTree {
         else {
             System.out.println("File doesn't match desired structure { Text{ Text}}");
         }
-
-//        Scanner scanner = new Scanner(file);
-//        root = fromFileHelper(root, scanner);
     }
 
     private Question<String> fromFile(BufferedReader reader) throws IOException {
