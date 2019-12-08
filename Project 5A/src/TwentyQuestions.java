@@ -15,7 +15,7 @@ public class TwentyQuestions {
 
     public void startGame(){
         boolean gameDone = false;
-        String input = "";
+        String input;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the 20 Questions game!");
         while (!gameDone){
