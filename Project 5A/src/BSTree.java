@@ -73,7 +73,7 @@ public class BSTree {
     }
 
     public void toFile(){
-        try(PrintWriter out = new PrintWriter("src/textForWritingTest.txt")) {
+        try(PrintWriter out = new PrintWriter("src/twentyQuestions.txt")) {
             out.println(root.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class BSTree {
             //These two lines could have been abstracted to one, like this
             //BufferedReader bf = new BufferedReader(new FileReader(new File("src/textForWritingTest.txt")));
             //but readability and understanding is key here
-            FileReader file = new FileReader(new File("src/textForWritingTest.txt"));
+            FileReader file = new FileReader(new File("src/twentyQuestions.txt"));
             BufferedReader bf = new BufferedReader(file);
             //Look at the first character
             if ((char) bf.read() == '{'){
@@ -104,7 +104,7 @@ public class BSTree {
                 System.out.println("File doesn't match desired structure { Text{ Text}}");
             }
         } catch (FileNotFoundException e){
-            System.out.println("Error trying to consume the file");
+            System.out.println("Error trying to consume the file\"twentyQuestions.txt\"");
             e.printStackTrace();
         } catch (IOException ioE){
             System.out.println("Error while reading the file");
