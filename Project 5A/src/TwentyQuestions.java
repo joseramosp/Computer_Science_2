@@ -1,4 +1,3 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class TwentyQuestions {
@@ -11,12 +10,8 @@ public class TwentyQuestions {
     }
 
     public void setup(){
-        try{
-            this.twentyQ.fromFile();
-            this.currentQuestion = twentyQ.root;
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        this.twentyQ.fromFile();
+        this.currentQuestion = twentyQ.root;
     }
 
     public void startGame(){
