@@ -9,11 +9,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         BSTree test = new BSTree();
-
 //        test.test1();
-//        System.out.println(test.root.toString());
 //        test.toFile();
+        TwentyQuestions tq = new TwentyQuestions(test);
+        tq.setup();
+        tq.startGame();
+
+//        System.out.println(test.root.toString());
+//        System.out.println(test.root);
 //        test.fromFile();
+//        System.out.println(test.root);
 //        Main.startGame(test);
 //        System.out.println(test.root);
 
@@ -22,8 +27,8 @@ public class Main {
 //        test.root.question();
 //        System.out.println(test.root.yes().question());
 //        test.print();
-        test.fromFile();
-        System.out.println(test.root);
+//        test.fromFile();
+//        System.out.println(test.root);
     }
 
     static void startGame(BSTree tree){

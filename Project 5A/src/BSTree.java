@@ -39,7 +39,33 @@ public class BSTree {
 
     public void test1(){
         
-        this.root = new Question<String>("Is is alive?", new Question<String>("It is a rock"), new Question<String>("It is a dog"));
+        this.root = new Question<String>("Is is alive?",
+                new Question<>("Is it naturally-made?",
+                        new Question<>("Is it a made of plastic?",
+                                new Question<>("Is it made of metal?",
+                                        new Question<>("Is it fabric?",
+                                                new Question<>("Is it made of wood?",
+                                                        new Question<>("Is it made of cardboard?",
+                                                                new Question<>("Is it made of concrete?",
+                                                                        new Question<>("Is it made of plywood?",
+                                                                                new Question<>(null),
+                                                                                new Question<>("Is it a house?")),
+                                                                        new Question<>("Is it a building?")),
+                                                                new Question<>("Is it a box?")),
+                                                        new Question<>("Is is a cabinet?")),
+                                                new Question<>("Is it a shirt?")),
+                                        new Question<>("Is it a pipe?")),
+                                new Question<>("Is it something electronic?",
+                                        new Question<>("Is it a straw?"),
+                                        new Question<>("Is it a monitor?"))),
+                        new Question<>("Is it a mineral?",
+                                new Question<>("Is it a rock?"),
+                                new Question<>("Is it amber?"))),
+                new Question<>("Is it a pet?",
+                        new Question<>("Is it a plant?",
+                                new Question<>("Is it a Person?"),
+                                new Question<>("Is it a Rose?")),
+                        new Question<>("Is it a dog?")));
         
     }
 
@@ -71,7 +97,7 @@ public class BSTree {
         }
         //If it's not, abort
         else {
-            System.out.println("File doesn't match desired structure {Text{}{}}");
+            System.out.println("File doesn't match desired structure { Text{ Text}}");
         }
 
 //        Scanner scanner = new Scanner(file);
@@ -89,7 +115,7 @@ public class BSTree {
         char currentChar = (char) reader.read();
 
         if (currentChar == '}' && reader.toString().isEmpty()) {
-            return newlyCreated;
+            return null;
         } else {
             currentChar = (char) reader.read();
         }
@@ -99,8 +125,11 @@ public class BSTree {
             //it is just doing next() from a LinkedList: it displays what it has AND moves the cursor one
             //step forward. That's why we should also save before the loop starts to check if we
             //don't meet these condition
+        if (currentChar == ' '){
+            currentChar = (char)reader.read();
+        }
 
-        while (currentChar != '{' && currentChar != '}'){
+        while (currentChar != '{' && currentChar != '}' && currentChar != '\n'){
             parsedQuestion.append(currentChar);
             currentChar = (char)reader.read();
         }
@@ -113,6 +142,10 @@ public class BSTree {
             if(newlyCreated.getQuestion() != null){
                 newlyCreated.setNo(fromFile(reader));
                 newlyCreated.setYes(fromFile(reader));
+                reader.mark(0);
+                if (reader.read() != '}'){
+                    reader.reset();
+                }
             }
         }
         return newlyCreated;
