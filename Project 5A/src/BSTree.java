@@ -86,17 +86,13 @@ public class BSTree {
             //Wrap the FileReader around a BufferedReader for a less costly read because
             //it returns raw data (byte level) rather than parsing what it finds
             //These two lines could have been abstracted to one, like this
-            //BufferedReader bf = new BufferedReader(new FileReader(new File("src/textForWritingTest.txt")));
+            //BufferedReader bf = new BufferedReader(new FileReader(new File("src/twentyQuestions.txt")));
             //but readability and understanding is key here
             FileReader file = new FileReader(new File("src/twentyQuestions.txt"));
             BufferedReader bf = new BufferedReader(file);
             //Look at the first character
             if ((char) bf.read() == '{'){
                 //If it is a '{' then helper
-                //helper: Take all the characters after the { and return a node
-                //with its data being the String of these characters, until it finds a
-                //'}', and when it does, set its left to whatever the string is and
-                //its right to the same thing (same method not the same object
                 this.root = fromFile(bf);
             }
             //If it's not, abort
@@ -122,8 +118,9 @@ public class BSTree {
         Question<String> newlyCreated = new Question<>(null);
         char currentChar = (char) reader.read();
 
-        if (currentChar == '}' && reader.toString().isEmpty()) {
-            return null;
+        //If this is the end of the Question, we exit prematurely
+        if (currentChar == '}') {
+            return newlyCreated;
         } else {
             currentChar = (char) reader.read();
         }
@@ -131,17 +128,20 @@ public class BSTree {
         //Here it should only be a read while the character is not either { or }.
             //BufferedReader works like a LinkedList in the way that when a character is read,
             //it is just doing next() from a LinkedList: it displays what it has AND moves the cursor one
-            //step forward. That's why we should also save before the loop starts to check if we
-            //don't meet these condition
+            //step forward.
+
+        //Avoiding spaces
         if (currentChar == ' '){
             currentChar = (char)reader.read();
         }
 
+        //When we reach the end of file
         while (currentChar != '{' && currentChar != '}' && currentChar != '\n'){
             parsedQuestion.append(currentChar);
             currentChar = (char)reader.read();
         }
 
+        //If the string we built is not empty
         if (!parsedQuestion.toString().isEmpty()){
             newlyCreated.setQuestion(parsedQuestion.toString());
         }
@@ -150,6 +150,8 @@ public class BSTree {
             if(newlyCreated.getQuestion() != null){
                 newlyCreated.setNo(fromFile(reader));
                 newlyCreated.setYes(fromFile(reader));
+                //We look ahead and if this is the end of the current Question's
+                // branching, we want to skip one character for the next iteration
                 reader.mark(0);
                 if (reader.read() != '}'){
                     reader.reset();
