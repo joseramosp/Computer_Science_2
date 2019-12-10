@@ -1,43 +1,36 @@
+/*
+// * Jose Ramos
+// * Student ID: 00299444
+// * CIS 252 - T-7847
+// * December 4/2019
+// * Project 5A
+// * -----------------------
+// * Objectives:
+// * This class is part of the "Project 5A" assignment. To see the objectives of this lab please read the readme.txt file.
+// *
+// * NOTE: The method menu() call all the methods that are necessary to run the game.
+*/
+
 import java.io.*;
-import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Scanner;
-import static java.nio.file.StandardOpenOption.*;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        BSTree test = new BSTree();
-
-//        System.out.println(test.root.toString());
-
-//        test.test1();
-//        test.toFile();
-
-        test.fromFile();
-        Main.startGame(test);
-//        System.out.println(test.root);
-        test.toFile();
-
-//        System.out.println(test.root);
-
-//        test.root.question();
-//        System.out.println(test.root.yes().question());
-//        test.print();
+        Main.menu();
 
     }
 
+    // This is the method that runs the game. Note: it doesn't load the the tree from the file or save the tree on the file.
+    // Call the method fromFile() from the class BSTree before using it and call the toFile() after using it.
     static void startGame(BSTree tree){
         Scanner scanner = new Scanner(System.in);
 
         Question<String> rt = tree.root;
         String userInput;
 
-        tree.print();
-        System.out.println(tree.root);
-
-        System.out.println("Think about anything and I am going to guess what it is. Just type \"y\" for yes and \"n\" for no on each question.\n");
+        System.out.println("\nThink about anything and I am going to guess what it is. Just type \"y\" for yes and \"n\" for no on each question.\n");
 
         while(!tree.root.isLeaf()){
             System.out.println(tree.root.question());
@@ -96,9 +89,27 @@ public class Main {
             System.out.println("\nI knew it!");
             while(tree.root.hasParent()){
                 tree.goToParent();
-//                tree.print();
-//                System.out.println(tree.root);
             }
+        }
+    }
+
+    // This is the menu of the program.
+    static public void menu() throws IOException{
+
+        BSTree test = new BSTree();
+
+        System.out.println("Welcome to the 20Q game!!\nEnter \"y\" to start the game or \"q\" to quit the game:");
+
+        Scanner scanner = new Scanner(System.in);
+
+        String userInput = scanner.nextLine();
+
+        while(userInput.equals("y")){
+            test.fromFile();
+            Main.startGame(test);
+            test.toFile();
+            System.out.println("\nEnter \"y\" to start the game or \"q\" to quit the game:");
+            userInput = scanner.nextLine();
         }
     }
 }

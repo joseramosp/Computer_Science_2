@@ -1,8 +1,20 @@
+/*
+// * Jose Ramos
+// * Student ID: 00299444
+// * CIS 252 - T-7847
+// * December 4/2019
+// * Project 5A
+// * -----------------------
+// * Objectives:
+// * This class is part of the "Project 5A" assignment. To see the objectives of this lab please read the readme.txt file.
+// *
+// * NOTE: This is the version of the tree that is used as to use each question as a node.
+*/
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.regex.Pattern;
 import java.util.*;
 
 public class BSTree {
@@ -41,12 +53,12 @@ public class BSTree {
 
     public void test1(){
         
-        this.root = new Question<String>("Is is alive?", new Question<String>("It is a rock"), new Question<String>("It is a dog"));
+        this.root = new Question<String>("Is is alive?", new Question<String>("It is the word humble!"), new Question<String>("It is a dog!"));
         
     }
 
     public void toFile(){
-        try(PrintWriter out = new PrintWriter("src/textForWritingTest.txt")) {
+        try(PrintWriter out = new PrintWriter("src/QuestionAndAnswersOfTheTree.txt")) {
             out.println(root.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -54,7 +66,7 @@ public class BSTree {
     }
 
     public void fromFile() throws FileNotFoundException {
-        FileInputStream file = new FileInputStream("src/textForWritingTest.txt");
+        FileInputStream file = new FileInputStream("src/QuestionAndAnswersOfTheTree.txt");
         Scanner scanner = new Scanner(file);
         root = fromFileHelper(root, scanner);
     }
