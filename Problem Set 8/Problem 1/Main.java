@@ -9,10 +9,11 @@ Date: December 2, 2019
 Write an implementation of a HashMap that uses linear probing. Implement this in an array of 25 elements. Use strings
 as the keys and their hash codes as the array index. Provide testing code.
 
-Reference:
-*/
+Reference: the HashMap implementation was inspired from algs4.cs.princeton.edu/34hash/LinearProbingHashST.java.html
 
-import java.lang.reflect.Array;
+NOTE: Every key is being hashed inside of the HashMap class.
+
+*/
 
 public class Main {
 
