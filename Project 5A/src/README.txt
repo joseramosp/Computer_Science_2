@@ -21,4 +21,4 @@ The requirements of this project are:
 
 * Citations: None.
 
-NOTE: Please make sure that the QuestionAndAnswersOfTheTree.txt is inside of the src folder to make it available for the program.
+NOTE: Please make sure that the QuestionAndAnswersOfTheTree.txt is inside of the src folder to make it available for the program. Path: "scr/QuestionAndAnswersOfTheTree.txt"
