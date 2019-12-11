@@ -1,4 +1,4 @@
-public class HashMap<K, V> {
+public class HashMap<K , V> {
 
     private static final int INIT_CAPACITY = 4;
 
@@ -166,20 +166,6 @@ public class HashMap<K, V> {
         if (n > 0 && n <= m / 8) resize(m / 2);
 
         assert check();
-    }
-
-    /**
-     * Returns all keys in this symbol table as an {@code Iterable}.
-     * To iterate over all of the keys in the symbol table named {@code st},
-     * use the foreach notation: {@code for (K K : st.keys())}.
-     *
-     * @return all keys in this symbol table
-     */
-    public Iterable<K> keys() {
-        LQueue<K> queue = new LQueue<K>();
-        for (int i = 0; i < m; i++)
-            if (keys[i] != null) queue.enqueue(keys[i]);
-        return (Iterable<K>) queue;
     }
 
     // integrity check - don't check after each put() because
