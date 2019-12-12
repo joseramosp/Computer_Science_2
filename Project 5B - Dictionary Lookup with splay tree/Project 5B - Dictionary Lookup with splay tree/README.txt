@@ -8,7 +8,7 @@
 * This project has as its purpose to make a tree that can reflect the most recent search or the most searched domain in a tree.
 In this project you will combine a map (key-value record) with the splaytree to create a fast lookup of domain names.
 
-The instructions of this project are:
+The requirements of this project are:
 
 1- Define a key-value record class. The key must be comparable.
 2- Modify the play tree (in the example area) to store records.
@@ -19,11 +19,6 @@ The instructions of this project are:
 7- Print the tree in a way you can identify the levels (or at least the root)
 8- Use your list to randomly select domain names to look up.
 9- print the tree (as before) after each look up.
-
-The requirements for this project are:
-
-1- Use a linked Record and a Splay tree
-2- Fill the tree and find records in the tree
 
 * The main of this project is in the "Main.java" file compile and run that file to see the output of the program.
 
