@@ -8,7 +8,7 @@ public class FSM extends GraphMatrix {
         FSM test = new FSM(14);
 
         for(int i =0; i<13; i++){
-            test.addEdge(i,i+1,1);
+            test.addEdge(i,i+1,"[0-9]");
             test.setValue(i,i);
         }
         test.setValue(13,13);

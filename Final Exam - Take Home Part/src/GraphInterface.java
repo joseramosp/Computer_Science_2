@@ -12,10 +12,10 @@ public interface GraphInterface<T> {
     void setValue(int v, T val);
 
     // Adds a new edge from node v to node w with weight wgt
-    void addEdge(int v, int w, int wgt);
+    void addEdge(int v, int w, String wgt);
 
     // Get the weight value for an edge
-    int weight(int v, int w);
+    String weight(int v, int w);
 
     // Removes the edge from the graph.
     void removeEdge(int v, int w);
